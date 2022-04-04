@@ -69,7 +69,6 @@ nav {
     color: $white-color;
     justify-content: space-between;
     align-items: center;
-    transition: background-color 1s ease;
     z-index: 10;
     @include tablet {
         background-color: transparent;
@@ -97,6 +96,34 @@ nav {
         li {
             a {
                 color: $white-color;
+                display: inline-block;
+                vertical-align: middle;
+                -webkit-transform: perspective(1px) translateZ(0);
+                transform: perspective(1px) translateZ(0);
+                box-shadow: 0 0 1px transparent;
+                position: relative;
+                overflow: hidden;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    z-index: -1;
+                    left: 50%;
+                    right: 50%;
+                    bottom: 0;
+                    background: #ecf0f1;
+                    height: 2px;
+                    -webkit-transition-property: left, right;
+                    transition-property: left, right;
+                    -webkit-transition-duration: 0.3s;
+                    transition-duration: 0.3s;
+                    -webkit-transition-timing-function: ease-out;
+                    transition-timing-function: ease-out;
+                }
+                &:hover::before,
+                &:focus::before {
+                    left: 0;
+                    right: 0;
+                }
             }
         }
     }
@@ -115,7 +142,6 @@ nav {
     height: max-content;
     background-color: $primary-color;
     transform: translate(0, -200px);
-    transition: all 0.3s ease-in-out;
     z-index: 2;
     @include tablet {
         display: none;

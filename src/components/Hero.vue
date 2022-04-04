@@ -58,9 +58,6 @@ export default {
             }
         }
         .hero-button {
-            cursor: pointer;
-            min-width: 44px;
-            min-height: 44px;
             transition: 0.5s;
             padding: 10px 20px;
             border: 2px solid $primary-color;

@@ -3,7 +3,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 * {
-  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -13,6 +12,7 @@ html,
 body {
   scroll-behavior: smooth;
   background-color: $secondary-color;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -21,8 +21,12 @@ body {
   flex-direction: column;
 }
 
-h2 {
-  font-size: 1.5rem;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
 }
 
 p {
@@ -35,6 +39,7 @@ a {
   outline: none;
 }
 
+a,
 button {
   cursor: pointer;
 }
@@ -73,20 +78,15 @@ textarea {
 .flex {
   display: flex;
   flex-wrap: wrap;
-  &.justify-between {
-    justify-content: space-between;
-  }
 }
 
-.item-center {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
+.center {
+  text-align: center;
 }
 
-.rounded {
-  border-radius: 0.5rem;
+.material-icons {
+  vertical-align: middle !important;
+  user-select: none;
 }
 
 footer {
