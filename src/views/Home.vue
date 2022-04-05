@@ -17,15 +17,56 @@
                     <p>Menu makanan akan dikirimkan ke rumah kamu</p>
                 </div>
             </div>
+            <h1 class="mt-4 center content-title">Categories</h1>
+            <div class="category-wrapper">
+                <div class="category-list grid">
+                    <div
+                        class="category-item rounded"
+                        v-for="category in categories.slice(0, 6)"
+                        :key="category.idCategory"
+                    >
+                        <img class="category-thumbnail" :src="category.strCategoryThumb" alt />
+                        <div class="category-content p-3">
+                            <h2 class="category-title">{{ category.strCategory }}</h2>
+                            <p
+                                class="category-description"
+                            >{{ category.strCategoryDescription.substr(0, 100) }}</p>
+                        </div>
+                    </div>
+                </div>
+                <router-link :to="'menu'">
+                    <button class="item-center rounded bg-primary mt-2">
+                        <span class="material-icons mr-1">visibility</span> See More
+                    </button>
+                </router-link>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import Hero from "../components/Hero.vue"
+import { computed, onMounted } from 'vue'
+import { useStore } from 'vuex'
+
 export default
     {
         components: { Hero },
+        setup() {
+            const store = useStore()
+
+            onMounted(() => {
+                store.dispatch('home/getCategories')
+            })
+
+            const categories = computed(() => {
+                return store.state.home.categories
+            })
+
+            return {
+                categories
+            }
+        }
     }
 </script>
 
@@ -55,6 +96,42 @@ export default
             color: $primary-color;
             padding-bottom: 20px;
         }
+    }
+}
+.category-item {
+    text-align: center;
+    background-color: $white-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    .category-thumbnail {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+    .category-content {
+        .category-title {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        .category-description {
+            margin-top: 10px;
+            font-size: 16px;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+button {
+    transition: 0.5s;
+    padding: 10px 20px;
+    color: $white-color;
+    font-size: 1em;
+    border: 0;
+    &:hover {
+        background: #ff6701;
+    }
+    &:focus {
+        background: #ff6701;
+        outline: 2px solid #ff6701;
     }
 }
 </style>

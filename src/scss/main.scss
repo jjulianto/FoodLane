@@ -1,5 +1,6 @@
 @import "./_mixins.scss";
 @import "./_variables.scss";
+@import "./responsive.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 * {
@@ -80,19 +81,43 @@ textarea {
   flex-wrap: wrap;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  padding: 2.5rem;
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .center {
   text-align: center;
+}
+
+.item-center {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rounded {
+  border-radius: 5px;
 }
 
 .material-icons {
   vertical-align: middle !important;
   user-select: none;
+  position: relative;
+  top: -2px;
 }
 
 footer {
   color: $white-color;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
   padding: 1.5rem;
   background-color: $primary-color;
 }

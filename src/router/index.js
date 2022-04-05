@@ -5,6 +5,12 @@ const routes = [{
     name: 'home',
     component: () =>
         import( /* webpackChunkName: "home" */ '../views/Home.vue')
+},
+{
+    path: '/menu',
+    name: 'menu',
+    component: () =>
+        import( /* webpackChunkName: "menu" */ '../views/Menu.vue')
 }
 ]
 

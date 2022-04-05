@@ -1,19 +1,27 @@
 <template>
     <header>
-        <nav :class="{ 'bg-primary': $route.path !== '/' }" id="drawer">
-            <p class="brand-title p-3">FoodLane</p>
+        <nav class="bg-primary" id="drawer">
+            <p class="brand-title pl-2">FoodLane</p>
             <ul class="menu-desktop">
                 <li class="nav-item mr-5">
-                    <router-link :to="{ name: 'home' }">Home</router-link>
+                    <router-link :to="{ name: 'home' }">
+                        <span class="material-icons" aria-hidden="true">home</span> Home
+                    </router-link>
                 </li>
                 <li class="nav-item mr-5">
-                    <router-link :to="'menu'">Menu</router-link>
+                    <router-link :to="'menu'">
+                        <span class="material-icons" aria-hidden="true">restaurant_menu</span> Menu
+                    </router-link>
                 </li>
                 <li class="nav-item mr-5">
-                    <router-link :to="'gallery'">Gallery</router-link>
+                    <router-link :to="'gallery'">
+                        <span class="material-icons" aria-hidden="true">collections</span> Gallery
+                    </router-link>
                 </li>
-                <li class="nav-item mr-5" id="dropdown">
-                    <router-link :to="'cart'">Cart</router-link>
+                <li class="nav-item mr-5">
+                    <router-link :to="'cart'">
+                        <span class="material-icons" aria-hidden="true">shopping_cart</span> Cart
+                    </router-link>
                 </li>
             </ul>
 
@@ -21,16 +29,24 @@
         </nav>
         <ul ref="mobileMenu" class="menu-mobile p-3">
             <li class="nav-item">
-                <router-link :to="{ name: 'home' }">Home</router-link>
+                <router-link :to="{ name: 'home' }">
+                    <span class="material-icons" aria-hidden="true">home</span> Home
+                </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="'menu'">Menu</router-link>
+                <router-link :to="'menu'">
+                    <span class="material-icons" aria-hidden="true">restaurant_menu</span> Menu
+                </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="'gallery'">Gallery</router-link>
+                <router-link :to="'gallery'">
+                    <span class="material-icons" aria-hidden="true">collections</span> Gallery
+                </router-link>
             </li>
-            <li class="nav-item" id="dropdown">
-                <router-link :to="'cart'">Cart</router-link>
+            <li class="nav-item">
+                <router-link :to="'cart'">
+                    <span class="material-icons" aria-hidden="true">shopping_cart</span> Cart
+                </router-link>
             </li>
         </ul>
     </header>
@@ -42,6 +58,7 @@ import { ref } from 'vue';
 export default {
     name: "Navbar",
     setup() {
+
         const mobileMenu = ref(null);
 
         const toggle = () => {
@@ -50,7 +67,7 @@ export default {
 
         return {
             mobileMenu,
-            toggle
+            toggle,
         }
     },
 }
@@ -64,18 +81,12 @@ nav {
     display: flex;
     width: 100%;
     top: 0;
-    position: fixed;
-    background-color: $primary-color;
     color: $white-color;
+    position: fixed;
     justify-content: space-between;
     align-items: center;
+    padding: 14px;
     z-index: 10;
-    @include tablet {
-        background-color: transparent;
-        .brand-title {
-            color: $primary-color;
-        }
-    }
     .brand-title {
         font-weight: bold;
         font-size: 21px;
@@ -96,13 +107,7 @@ nav {
         li {
             a {
                 color: $white-color;
-                display: inline-block;
-                vertical-align: middle;
-                -webkit-transform: perspective(1px) translateZ(0);
-                transform: perspective(1px) translateZ(0);
-                box-shadow: 0 0 1px transparent;
                 position: relative;
-                overflow: hidden;
                 &::before {
                     content: "";
                     position: absolute;
@@ -110,7 +115,7 @@ nav {
                     left: 50%;
                     right: 50%;
                     bottom: 0;
-                    background: #ecf0f1;
+                    background: $white-color;
                     height: 2px;
                     -webkit-transition-property: left, right;
                     transition-property: left, right;
@@ -139,7 +144,6 @@ nav {
     top: 0;
     list-style: none;
     width: 100%;
-    height: max-content;
     background-color: $primary-color;
     transform: translate(0, -200px);
     z-index: 2;
