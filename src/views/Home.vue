@@ -25,7 +25,11 @@
                         v-for="category in categories.slice(0, 6)"
                         :key="category.idCategory"
                     >
-                        <img class="category-thumbnail" :src="category.strCategoryThumb" alt />
+                        <img
+                            class="category-thumbnail"
+                            v-lazy="{ src: category.strCategoryThumb }"
+                            alt
+                        />
                         <div class="category-content p-3">
                             <h2 class="category-title">{{ category.strCategory }}</h2>
                             <p

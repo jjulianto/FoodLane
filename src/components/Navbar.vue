@@ -19,7 +19,8 @@
                     </router-link>
                 </li>
                 <li class="nav-item mr-5">
-                    <router-link :to="'cart'">
+                    <router-link :to="{ name: 'cart' }">
+                        <span class="badge" v-if="cartCount">{{ cartCount }}</span>
                         <span class="material-icons" aria-hidden="true">shopping_cart</span> Cart
                     </router-link>
                 </li>
@@ -44,7 +45,8 @@
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="'cart'">
+                <router-link :to="{ name: 'cart' }">
+                    <span class="badge" v-if="cartCount">{{ cartCount }}</span>
                     <span class="material-icons" aria-hidden="true">shopping_cart</span> Cart
                 </router-link>
             </li>
@@ -53,21 +55,28 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useStore } from 'vuex'
 
 export default {
     name: "Navbar",
     setup() {
+        const store = useStore()
 
         const mobileMenu = ref(null);
+
+        const cartCount = computed(() => {
+            return store.getters['cart/cartCount']
+        })
 
         const toggle = () => {
             mobileMenu.value.classList.toggle("show-mobile-menu");
         }
 
         return {
+            cartCount,
             mobileMenu,
-            toggle,
+            toggle
         }
     },
 }
@@ -130,6 +139,21 @@ nav {
                     right: 0;
                 }
             }
+            .badge {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: -10px;
+                font-size: 12px;
+                right: 33px;
+                width: 20px;
+                height: 20px;
+                z-index: 10;
+                border-radius: 50%;
+                background-color: $red-color;
+                color: $white-color;
+            }
         }
     }
     #hamburger {
@@ -155,6 +179,21 @@ nav {
             position: relative;
             color: $white-color;
             display: inline-block;
+        }
+        .badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -8px;
+            right: 30px;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            z-index: 10;
+            border-radius: 50%;
+            background-color: $red-color;
+            color: $white-color;
         }
     }
 }

@@ -32,10 +32,13 @@
                         :key="food.idMeal"
                         style="animation-duration: 0.3s"
                     >
-                        <img class="menu-thumbnail" :src="food.strMealThumb" alt />
+                        <img class="menu-thumbnail" v-lazy="{ src: food.strMealThumb }" alt />
                         <div class="menu-content p-3">
                             <h2 class="menu-title">{{ food.strMeal }}</h2>
-                            <button class="menu-button item-center rounded bg-primary mt-2">
+                            <button
+                                class="menu-button item-center rounded bg-primary mt-2"
+                                @click.prevent="addToCart(food)"
+                            >
                                 <span class="material-icons" aria-hidden="true">shopping_cart</span> Tambah ke Keranjang
                             </button>
                         </div>
@@ -46,19 +49,6 @@
                     <h2 class="mt-3">Makanan tidak ditemukan.</h2>
                 </div>
             </div>
-            <!-- 
-            <div>
-                <transition-group name="fade" class="food-list flex" tag="div">
-                    <div
-                        class="food-item p-1"
-                        v-for="item in filteredData"
-                        :key="item.idMeal"
-                        style="animation-duration: 0.3s"
-                    >
-                        <food-item :food="item" />
-                    </div>
-                </transition-group>
-            </div>-->
         </div>
     </div>
 </template>
@@ -66,6 +56,7 @@
 <script>
 import { computed, onMounted, ref } from 'vue'
 import { useStore } from 'vuex'
+import Swal from 'sweetalert2'
 
 export default
     {
@@ -102,11 +93,26 @@ export default
                 }
             }
 
+            const addToCart = (food) => {
+                store.dispatch('cart/addToCart', {
+                    food,
+                    quantity: 1
+                })
+                Swal.fire({
+                    title: "Success",
+                    text: "Menu ditambahkan ke keranjang.",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+
             return {
                 searchFood,
                 foods,
                 filteredFood,
-                onChange
+                onChange,
+                addToCart
             }
         }
     }
