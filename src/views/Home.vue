@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <Hero />
-        <div class="container">
+        <div class="container" id="content">
             <h1 class="center content-title">Kenapa kamu harus memilih kami</h1>
             <div class="flex main-inner">
                 <div class="main-icon">
@@ -30,13 +30,13 @@
                             <h2 class="category-title">{{ category.strCategory }}</h2>
                             <p
                                 class="category-description"
-                            >{{ category.strCategoryDescription.substr(0, 100) }}</p>
+                            >{{ category.strCategoryDescription.substr(0, 100) }}...</p>
                         </div>
                     </div>
                 </div>
                 <router-link :to="{ name: 'menu' }">
                     <button class="item-center rounded bg-primary mt-2">
-                        <span class="material-icons mr-1">visibility</span> See More
+                        <span class="material-icons mr-1">visibility</span> See All Menu
                     </button>
                 </router-link>
             </div>
@@ -104,7 +104,7 @@ export default
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s ease-in-out;
     &:hover {
-        padding: 0.5rem;
+        transform: scale(1.1);
     }
     .category-thumbnail {
         width: 100%;
@@ -130,6 +130,7 @@ button {
     color: $white-color;
     font-size: 1em;
     border: 0;
+    font-weight: bold;
     &:hover {
         background: #ff6701;
     }

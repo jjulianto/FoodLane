@@ -64,8 +64,6 @@ select,
 input,
 textarea {
   min-height: 44px;
-  background-color: #d0cdcd;
-  border-radius: 10px;
   border: 0;
 }
 
@@ -79,6 +77,9 @@ textarea {
 .flex {
   display: flex;
   flex-wrap: wrap;
+  &.justify-center {
+    justify-content: center;
+  }
 }
 
 .grid {

@@ -5,6 +5,7 @@ import store from './store'
 import VueLazyLoad from 'vue3-lazyload'
 
 import "./scss/main.scss";
+import 'vue2-animate/dist/vue2-animate.min.css'
 
 const app = createApp(App)
 app.use(router)

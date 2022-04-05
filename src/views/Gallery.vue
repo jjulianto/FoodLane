@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <h1 class="center">Gambar</h1>
-        <p class="center">Beberapa foto & pengalaman pengujung di FoodLane</p>
+        <p class="center">Beberapa foto menu makanan pilihan dari kami.</p>
         <div class="gallery-container">
             <div class="gallery" v-for="(img, index) in image" :key="index">
-                <img v-lazy="{ src: getImageUrl(img) }" class="img-gallery" alt />
+                <img v-lazy="{ src: getImageUrl(img) }" class="img-gallery rounded" alt />
             </div>
         </div>
     </div>
@@ -44,23 +44,22 @@ export default {
 
 <style lang="scss" scoped>
 .gallery-container {
-    -moz-column-width: 18em;
-    -webkit-column-width: 18em;
-    column-width: 18em;
-    -moz-column-gap: 1em;
-    -webkit-column-gap: 1em;
-    column-gap: 1em;
+    -moz-column-width: 18rem;
+    -webkit-column-width: 18rem;
+    column-width: 18rem;
+    -moz-column-gap: 1rem;
+    -webkit-column-gap: 1rem;
+    column-gap: 1rem;
     .gallery {
         display: inline-block;
         width: 100%;
         padding: 30px;
         margin: 5px;
         .img-gallery {
-            border-radius: 20px;
             width: 100%;
             transition: 0.3s ease-in-out;
             &:hover {
-                padding: 0.5rem;
+                transform: scale(1.1);
             }
         }
     }

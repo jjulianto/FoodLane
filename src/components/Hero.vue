@@ -4,7 +4,7 @@
             <p class="hero-text">Welcome to</p>
             <h1 class="hero-title">FoodLane</h1>
             <p class="hero-tagline">Let's find food that can cure your hunger now!</p>
-            <a class="hero-button">Explore</a>
+            <a class="hero-button" href="#content">Explore</a>
         </div>
     </div>
 </template>

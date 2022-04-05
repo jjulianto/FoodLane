@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Navbar />
-    <router-view :class="{ 'pt-10': $route.path !== '/' }" />
+    <router-view :class="{ 'mt-10': $route.path !== '/' }" v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
     <Footer />
   </div>
 </template>

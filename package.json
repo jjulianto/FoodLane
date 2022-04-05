@@ -17,6 +17,7 @@
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
+    "vue2-animate": "^2.1.4",
     "vue3-lazyload": "^0.2.5-beta",
     "vuex": "^4.0.2"
   },
