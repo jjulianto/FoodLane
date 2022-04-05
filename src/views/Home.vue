@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <router-link :to="'menu'">
+                <router-link :to="{ name: 'menu' }">
                     <button class="item-center rounded bg-primary mt-2">
                         <span class="material-icons mr-1">visibility</span> See More
                     </button>
@@ -102,6 +102,10 @@ export default
     text-align: center;
     background-color: $white-color;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+    &:hover {
+        padding: 0.5rem;
+    }
     .category-thumbnail {
         width: 100%;
         height: 250px;

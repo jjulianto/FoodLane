@@ -11,11 +11,18 @@ const routes = [{
     name: 'menu',
     component: () =>
         import( /* webpackChunkName: "menu" */ '../views/Menu.vue')
+},
+{
+    path: '/gallery',
+    name: 'gallery',
+    component: () =>
+        import( /* webpackChunkName: "gallery" */ '../views/Gallery.vue')
 }
 ]
 
 const router = createRouter({
     history: createWebHistory(),
+    base: process.env.BASE_URL,
     routes
 })
 

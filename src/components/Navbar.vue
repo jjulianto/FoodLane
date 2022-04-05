@@ -9,12 +9,12 @@
                     </router-link>
                 </li>
                 <li class="nav-item mr-5">
-                    <router-link :to="'menu'">
+                    <router-link :to="{ name: 'menu' }">
                         <span class="material-icons" aria-hidden="true">restaurant_menu</span> Menu
                     </router-link>
                 </li>
                 <li class="nav-item mr-5">
-                    <router-link :to="'gallery'">
+                    <router-link :to="{ name: 'gallery' }">
                         <span class="material-icons" aria-hidden="true">collections</span> Gallery
                     </router-link>
                 </li>
@@ -34,12 +34,12 @@
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="'menu'">
+                <router-link :to="{ name: 'menu' }">
                     <span class="material-icons" aria-hidden="true">restaurant_menu</span> Menu
                 </router-link>
             </li>
             <li class="nav-item">
-                <router-link :to="'gallery'">
+                <router-link :to="{ name: 'gallery' }">
                     <span class="material-icons" aria-hidden="true">collections</span> Gallery
                 </router-link>
             </li>
