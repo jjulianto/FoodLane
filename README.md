@@ -1,4 +1,4 @@
-# Online Shop
+# FoodLane
 
 Food catalog accessible and responsive website with pure CSS.
 
