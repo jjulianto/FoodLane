@@ -162,7 +162,7 @@ export default
             transition: 0.5s;
             padding: 10px 20px;
             color: $white-color;
-            font-size: 1em;
+            font-size: 1rem;
             width: 100%;
             display: inline-block;
             font-weight: bold;

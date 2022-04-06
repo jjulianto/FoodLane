@@ -132,7 +132,7 @@ button {
     transition: 0.5s;
     padding: 10px 20px;
     color: $white-color;
-    font-size: 1em;
+    font-size: 1rem;
     border: 0;
     font-weight: bold;
     &:hover {

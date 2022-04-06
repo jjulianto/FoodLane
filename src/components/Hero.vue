@@ -65,7 +65,7 @@ export default {
             color: $white-color;
             text-transform: uppercase;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 1rem;
             letter-spacing: 1.5px;
             display: block;
             max-width: 150px;

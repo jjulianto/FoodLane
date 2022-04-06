@@ -12,4 +12,13 @@ app.use(router)
 app.use(store)
 app.use(VueLazyLoad)
 
+app.mixin({
+    methods: {
+        moneyFormat(value) {
+            let val = (value / 1).toFixed(0).replace('.', ',')
+            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+        }
+    }
+})
+
 app.mount('#app')
