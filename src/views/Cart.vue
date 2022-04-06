@@ -4,7 +4,7 @@
             <h2>Keranjang</h2>
             <div class="center" v-if="cartCount === 0">
                 <img src="../assets/empty-foods.svg" style="width: 250px; margin-top: 20px;" />
-                <h4 class="mt-3 mb-4">Sepertinya kamu belum memiliki menu di keranjang.</h4>
+                <h3 class="mt-3 mb-4">Sepertinya kamu belum memiliki menu di keranjang.</h3>
                 <router-link :to="{ name: 'menu' }" class="empty-cart-button bg-primary rounded">
                     <span class="material-icons">keyboard_arrow_left</span> Menu
                 </router-link>
@@ -55,7 +55,10 @@
                 <p>Total Harga</p>
                 <p>Rp{{ moneyFormat(cartSummary * 25000) }}</p>
             </div>
-            <router-link :to="'checkout'" class="bg-primary center summary-button rounded">Checkout</router-link>
+            <router-link
+                :to="{ name: 'checkout' }"
+                class="bg-primary center summary-button rounded"
+            >Checkout</router-link>
         </div>
     </div>
 </template>
